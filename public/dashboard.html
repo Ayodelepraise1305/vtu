@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - VTU Hub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <h1>VTU Hub</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><button id="logoutBtn2">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Dashboard Container -->
+  <div class="container dashboard-container">
+    <!-- Wallet Section -->
+    <section class="wallet-section">
+      <h2>My Wallet</h2>
+      <div class="wallet-box">
+        <p>Wallet Balance</p>
+        <h3 id="walletBalance">₦0.00</h3>
+        <button class="btn btn-primary" onclick="document.getElementById('fundModal').style.display='block'">
+          Fund Wallet
+        </button>
+      </div>
+    </section>
+
+    <!-- Buy Services Section -->
+    <section class="services-section">
+      <h2>Buy Services</h2>
+      <div class="service-tabs">
+        <button class="tab-btn active" onclick="switchTab('airtime')">Buy Airtime</button>
+        <button class="tab-btn" onclick="switchTab('data')">Buy Data</button>
+      </div>
+
+      <!-- Airtime Form -->
+      <div id="airtimeTab" class="tab-content active">
+        <form id="airtimeForm">
+          <div class="form-group">
+            <label for="airtimeProvider">Select Network</label>
+            <select id="airtimeProvider" name="provider" required>
+              <option value="">Choose network...</option>
+              <option value="MTN">MTN</option>
+              <option value="Airtel">Airtel</option>
+              <option value="Glo">Glo</option>
+              <option value="9Mobile">9Mobile</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="airtimePhone">Phone Number</label>
+            <input type="tel" id="airtimePhone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="airtimeAmount">Amount (₦)</label>
+            <input type="number" id="airtimeAmount" name="amount" min="100" required />
+          </div>
+          <button type="submit" class="btn btn-success">Buy Airtime</button>
+        </form>
+      </div>
+
+      <!-- Data Form -->
+      <div id="dataTab" class="tab-content">
+        <form id="dataForm">
+          <div class="form-group">
+            <label for="dataProvider">Select Network</label>
+            <select id="dataProvider" name="provider" required>
+              <option value="">Choose network...</option>
+              <option value="MTN">MTN</option>
+              <option value="Airtel">Airtel</option>
+              <option value="Glo">Glo</option>
+              <option value="9Mobile">9Mobile</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dataPhone">Phone Number</label>
+            <input type="tel" id="dataPhone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="dataAmount">Amount (₦)</label>
+            <input type="number" id="dataAmount" name="amount" min="100" required />
+          </div>
+          <button type="submit" class="btn btn-success">Buy Data</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Transaction History Section -->
+    <section class="history-section">
+      <h2>Transaction History</h2>
+      <table id="transactionTable">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Network</th>
+            <th>Amount</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="transactionBody">
+          <!-- Populated by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- Fund Wallet Modal -->
+  <div id="fundModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('fundModal').style.display='none'">&times;</span>
+      <h2>Fund Your Wallet</h2>
+      <form id="fundForm">
+        <div class="form-group">
+          <label for="fundAmount">Amount (₦)</label>
+          <input type="number" id="fundAmount" name="amount" min="100" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

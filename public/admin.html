@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - VTU Hub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-brand">
+        <h1>VTU Hub - Admin</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><button id="logoutBtn3">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Admin Container -->
+  <div class="container admin-container">
+    <!-- Statistics Section -->
+    <section class="stats-section">
+      <h2>Platform Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h4>Total Users</h4>
+          <p id="totalUsers" class="stat-number">0</p>
+        </div>
+        <div class="stat-card">
+          <h4>Total Transactions</h4>
+          <p id="totalTransactions" class="stat-number">0</p>
+        </div>
+        <div class="stat-card">
+          <h4>Total Volume</h4>
+          <p id="totalVolume" class="stat-number">₦0.00</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Users Management Section -->
+    <section class="users-section">
+      <h2>Users</h2>
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Wallet Balance</th>
+            <th>Role</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody id="usersBody">
+          <!-- Populated by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Transactions Management Section -->
+    <section class="transactions-section">
+      <h2>All Transactions</h2>
+      <table id="adminTransactionsTable">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Type</th>
+            <th>Network</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="adminTransactionsBody">
+          <!-- Populated by JavaScript -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -13,14 +13,19 @@ app.get("/", (req, res) => {
   res.send("VTU Backend is running...");
 });
 
-// MongoDB connection
-mongoose.connect("mongodb+srv://dcredence:<db_password>@cluster0.aabbocb.mongodb.net/")
+// MongoDB connection string (PUT YOUR REAL PASSWORD HERE)
+const MONGO_URI = "mongodb+srv://Dcredence:Ayodele1305@cluster0.aabbocb.mongodb.net/?retryWrites=true&w=majority";
+
+// connect DB
+mongoose.connect(MONGO_URI)
 .then(() => {
   console.log("MongoDB connected successfully");
 
-  // start server ONLY after DB connects
-  app.listen(3000, () => {
-    console.log("Server running on port 3000");
+  // IMPORTANT: use Render port
+  const PORT = process.env.PORT || 5000;
+
+  app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
   });
 
 })

@@ -155,6 +155,32 @@ vtu-website/
 - `GET /api/admin/transactions` - Get all transactions
 - `GET /api/admin/stats` - Get platform statistics
 
+## Deploying Online
+
+This app can be deployed as a containerized Node.js service. A `Dockerfile` is included for hosting on platforms such as Render, Railway, Fly.io, or any Docker-compatible cloud provider.
+
+### Deploy using GitHub Container Registry
+1. Push your code to GitHub `main`.
+2. The included GitHub Actions workflow will build and publish a Docker image to GitHub Container Registry at:
+   - `ghcr.io/<your-github-username>/vtu:latest`
+3. Configure an online host (Render, Railway, etc.) to use that container image.
+
+### Deploy using Render or Railway
+1. Create a new web service on Render or Railway.
+2. Connect your GitHub repository.
+3. Set environment variables:
+   - `MONGODB_URI` (MongoDB Atlas connection string)
+   - `JWT_SECRET`
+   - `PAYSTACK_SECRET`
+   - `PORT` (optional, default 5000)
+4. Use `Dockerfile` as the build method or `npm start` if the platform supports Node apps.
+
+### Local production test
+```bash
+npm install
+npm start
+```
+
 ## Notes
 
 - **Paystack Integration**: Currently a placeholder. To integrate:
